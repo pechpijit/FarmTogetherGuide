@@ -1,20 +1,17 @@
 package com.khiancode.android.farmtogetherguide.fragment;
 
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -31,7 +28,6 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class MenuOneFragment extends Fragment {
-
 
     @BindView(R.id.tabCrop)
     FrameLayout tabCrop;
@@ -62,8 +58,6 @@ public class MenuOneFragment extends Fragment {
     TextView txtTabName;
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
-    @BindView(R.id.txtVersion)
-    TextView txtVersion;
 
     int viewLast;
     AdapterShopList adapter;
@@ -86,19 +80,7 @@ public class MenuOneFragment extends Fragment {
 
         startView();
 
-        setVersionName();
-
         return view;
-    }
-
-    private void setVersionName() {
-        try {
-            PackageInfo pInfo = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0);
-            String version = pInfo.versionName;
-            txtVersion.setText("version "+version);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 
     private void startView() {
@@ -171,6 +153,7 @@ public class MenuOneFragment extends Fragment {
                 }
                 break;
             case R.id.btnBack:
+                MediaPlayer.create(getActivity(), R.raw.widget_wood_select_3).start();
                 ((MainActivity) getActivity()).setFram(new HomeFragment());
                 ((MainActivity) getActivity()).setStat(0);
                 break;

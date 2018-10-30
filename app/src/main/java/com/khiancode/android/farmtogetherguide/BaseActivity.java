@@ -49,11 +49,25 @@ public class BaseActivity extends AppCompatActivity {
         } else{
             sound = R.raw.action_denied_2;
         }
+        MediaPlayer.create(context, sound).start();
+    }
+
+    public void createSoundOpenPage(Context context) {
+        int r = (int )(Math.random() * 3 + 1);
+        int sound = R.raw.panel_open_1;
+
+        if (r == 1) {
+            sound = R.raw.panel_open_1;
+        } else if (r == 2) {
+            sound = R.raw.panel_open_2;
+        } else {
+            sound = R.raw.panel_open_3;
+        }
 
         playSound(context, sound);
     }
 
-    public void createSoundOpenPage(Context context) {
+    public void createSoundClosePage(Context context) {
         int r = (int )(Math.random() * 3 + 1);
         int sound = R.raw.panel_open_1;
 

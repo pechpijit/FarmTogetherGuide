@@ -108,12 +108,4 @@
         </FrameLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtVersion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_margin="2dp"
-        android:textStyle="bold"/>
-
 </FrameLayout>
